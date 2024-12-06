@@ -11,5 +11,12 @@ for value in log['CPU Usage']:
        warn = 'Syslog 4: Unusually High CPU Usage detected!'
        log['Debug'] = warn
        print(warn)
+       log.to_csv('CPU_Warn.csv', index=False)
+    elif value < 45.0:
+        debug = 'Syslog 7: CPU Usage at ' + str(value)
+        log['Debug'] = debug
+        print(debug)
+        log.to_csv('CPU_Warn.csv', index=False)
+
         
 
