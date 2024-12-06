@@ -5,6 +5,7 @@ url = 'https://raw.githubusercontent.com/Firewallexaminer/CYSE130/refs/heads/mai
 log = pd.read_csv(url)
 
 for value in log['CPU Usage']:
+    print(value)
     if value > 70.0:
        warn = 'Syslog 4: Unusually High CPU Usage detected!'
        log['Debug'] = warn
