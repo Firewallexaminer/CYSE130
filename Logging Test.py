@@ -1,8 +1,9 @@
+import os
 import psutil
 import pandas as pd
 import time
 
-
+print(os.getcwd())
 
 # Creates a table with time, hostname, and CPU usage
 df = pd.DataFrame(columns=['Timestamp', 'CPU Usage', 'Hostname'])
@@ -11,11 +12,8 @@ df = pd.DataFrame(columns=['Timestamp', 'CPU Usage', 'Hostname'])
 while True:
     cpu_percent = psutil.cpu_percent(interval=1)
     Timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-    print(f"CPU Usage: {cpu_percent}%")
+    print(f'{Timestamp} - CPU Usage: {cpu_percent}%')
     time.sleep(1)
 
-
-# 
 df = df.append({'Timestamp': timestamp, 'CPU Usage': cpu_percent, 'Hostname': "CamServer"}, ignore_index=True)
 df.to_csv('cpu_usage.csv', index=False)
-print(f'{timestamp} - CPU Usage: {cpu_usage}%')
