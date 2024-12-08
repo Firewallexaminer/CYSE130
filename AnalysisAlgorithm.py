@@ -18,3 +18,5 @@ for value in log['CPU Usage']:
         log['Debug'] = 'Syslog 7: Low (normal)'
         print('Syslog 7: low')
 log.to_csv('CPU_Warn.csv', index=False)
+
+for 
